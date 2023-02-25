@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>Drivers</h1>
+    
+    <a  [routerLink]= "['/driver/create']" class="btn btn-success">Add New Driver</a>
+      
+    <table class="table table-striped">
+        <thead>
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th width="250px">Action</th>
+              </tr>
+        </thead>
+        <tbody>
+              <tr *ngFor="let driver of drivers">
+                <td>{{ driver.firstName }}</td>
+                <td>{{ driver.lastName }}</td>
+                <td>{{ driver.email }}</td>
+                <td>{{driver.phoneNumber}}</td>
+                <td>
+                  <a href="#" [routerLink]="['/driver/', driver.id, 'view']" class="btn btn-info">View</a>
+                  <a href="#" [routerLink]="['/driver/',driver.id, 'edit']" class="btn btn-primary">Edit</a>
+                  <button type="button" (click)="deletedriver(driver.id)" class="btn btn-danger">Delete</button>
+                </td>
+              </tr>
+        </tbody>
+    </table>
+ </div>
+ 
